@@ -10,11 +10,11 @@ from .models import Appointment, DoctorSchedule, Holiday
 
 
 def _make_doctor(phone="09120000001"):
-    return User.objects.create_user(phone_number=phone, full_name="دکتر تست", role=User.Role.DOCTOR)
+    return User.objects.create_user(username=f"doc_{phone}", phone_number=phone, full_name="دکتر تست", role=User.Role.DOCTOR)
 
 
 def _make_patient(phone="09120000002"):
-    return User.objects.create_user(phone_number=phone, full_name="بیمار تست")
+    return User.objects.create_user(username=f"pat_{phone}", phone_number=phone, full_name="بیمار تست")
 
 
 class AppointmentBookingTests(TestCase):
@@ -23,7 +23,7 @@ class AppointmentBookingTests(TestCase):
         self.patient = _make_patient()
         DoctorSchedule.objects.create(
             doctor=self.doctor,
-            day_of_week=0,  # Monday
+            day_of_week=2,  # Monday (Persian convention: 0=Saturday … 6=Friday)
             start_work="09:00",
             end_work="10:00",
             session_duration=30,
@@ -31,8 +31,20 @@ class AppointmentBookingTests(TestCase):
         self.client.force_authenticate(self.patient)
 
     def _next_monday(self):
+        """The next Monday as a date (may be today)."""
         today = timezone.localdate()
         return today + datetime.timedelta(days=(0 - today.weekday()) % 7)
+
+    def _bookable_monday(self):
+        """The next Monday that is at least 2 hours in the future.
+
+        If today IS a Monday, the earliest slots have already passed the
+        2-hour lead-time check — so book on the following week.
+        """
+        date = self._next_monday()
+        if date == timezone.localdate():
+            date += datetime.timedelta(days=7)
+        return date
 
     def _book(self, date=None, start="09:00"):
         return self.client.post(
@@ -40,14 +52,14 @@ class AppointmentBookingTests(TestCase):
             data={
                 "doctor_id": str(self.doctor.id),
                 "service_type": Appointment.ServiceType.LASER,
-                "appointment_date": (date or self._next_monday()).isoformat(),
+                "appointment_date": (date or self._bookable_monday()).isoformat(),
                 "start_time": start,
             },
             format="json",
         )
 
     def test_available_slots(self):
-        resp = self.client.get(reverse("slots", args=[self.doctor.id]) + "?date=" + self._next_monday().isoformat())
+        resp = self.client.get(reverse("slots", args=[self.doctor.id]) + "?date=" + self._bookable_monday().isoformat())
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(len(resp.json()), 2)  # 09:00, 09:30
 
@@ -57,7 +69,7 @@ class AppointmentBookingTests(TestCase):
         self.assertEqual(Appointment.objects.count(), 1)
 
         # The slot should now be gone.
-        slots = self.client.get(reverse("slots", args=[self.doctor.id]) + "?date=" + self._next_monday().isoformat()).json()
+        slots = self.client.get(reverse("slots", args=[self.doctor.id]) + "?date=" + self._bookable_monday().isoformat()).json()
         self.assertEqual(len(slots), 1)
 
     def test_double_booking_conflict(self):
@@ -67,7 +79,7 @@ class AppointmentBookingTests(TestCase):
         self.assertIn("پر شد", resp.json()["detail"])
 
     def test_holiday_rejected(self):
-        date = self._next_monday()
+        date = self._bookable_monday()
         Holiday.objects.create(doctor=self.doctor, date=date)
         resp = self._book(date=date)
         self.assertEqual(resp.status_code, 409)
@@ -111,10 +123,10 @@ class AppointmentBookingTests(TestCase):
 
 class AvailabilityTests(TestCase):
     def test_available_days(self):
-        doctor = _make_doctor()
+        doctor = _make_doctor(phone="09120000011")
         DoctorSchedule.objects.create(
-            doctor=doctor, day_of_week=0, start_work="09:00", end_work="09:30", session_duration=30
-        )
+            doctor=doctor, day_of_week=2, start_work="09:00", end_work="09:30", session_duration=30
+        )  # day_of_week=2 → Monday (Persian convention: 0=Saturday … 6=Friday)
         days = self.client.get(reverse("available-days", args=[doctor.id])).json()
         self.assertIsInstance(days, list)
         if days:  # only if a Monday falls inside the 30-day window

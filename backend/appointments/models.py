@@ -7,7 +7,7 @@ from django.db import models
 class DoctorSchedule(models.Model):
     """Weekly working schedule of a doctor."""
 
-    # Spec: 0 = Saturday … 6 = Friday.
+    # Persian week convention: 0 = Saturday (شنبه) … 6 = Friday (جمعه).
     DAY_CHOICES = [(i, ["شنبه", "یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه"][i]) for i in range(7)]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

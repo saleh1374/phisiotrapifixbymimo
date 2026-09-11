@@ -1,0 +1,74 @@
+[2026-09-11 11:22:16,563] INFO django.server "GET /api/health/ HTTP/1.1" 200 31
+[2026-09-11 11:22:16,816] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:23:27,169] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:23:27,174] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:24:15,777] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:24:15,781] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:25:38,216] INFO django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\site-packages\jwt\api_jwt.py:147: InsecureKeyLengthWarning: The HMAC key is 20 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+  return self._jws.encode(
+[2026-09-11 11:25:38,342] INFO django.server "POST /api/auth/login/ HTTP/1.1" 200 923
+[2026-09-11 11:25:39,502] INFO django.server "OPTIONS /api/appointments/mine/ HTTP/1.1" 200 0
+[2026-09-11 11:25:39,504] INFO django.server "OPTIONS /api/videos/mine/ HTTP/1.1" 200 0
+[2026-09-11 11:25:39,507] INFO django.server "OPTIONS /api/academy/mine/ HTTP/1.1" 200 0
+C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\site-packages\jwt\api_jwt.py:368: InsecureKeyLengthWarning: The HMAC key is 20 bytes long, which is below the minimum recommended length of 32 bytes for SHA256. See RFC 7518 Section 3.2.
+  decoded = self.decode_complete(
+[2026-09-11 11:25:39,517] INFO django.server "GET /api/appointments/mine/ HTTP/1.1" 200 2
+[2026-09-11 11:25:39,521] INFO django.server "OPTIONS /api/academy/certificates/ HTTP/1.1" 200 0
+[2026-09-11 11:25:39,529] INFO django.server "GET /api/videos/mine/ HTTP/1.1" 200 52
+[2026-09-11 11:25:39,539] INFO django.server "GET /api/academy/mine/ HTTP/1.1" 200 2
+[2026-09-11 11:25:39,546] INFO django.server "GET /api/academy/certificates/ HTTP/1.1" 200 2
+[2026-09-11 11:26:11,744] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:26:11,746] INFO django.server "GET /api/appointments/doctors/ HTTP/1.1" 200 631
+[2026-09-11 11:26:11,750] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:26:55,385] INFO django.server "GET /api/appointments/doctors/41594354-d4b7-489e-b42c-38bd5af037b3/available-days/ HTTP/1.1" 200 647
+[2026-09-11 11:27:37,489] INFO django.server "GET /api/appointments/doctors/41594354-d4b7-489e-b42c-38bd5af037b3/slots/?date=2026-09-12 HTTP/1.1" 200 449
+[2026-09-11 11:28:15,188] INFO django.server "OPTIONS /api/appointments/book/ HTTP/1.1" 200 0
+[2026-09-11 11:28:15,240] INFO django.server "POST /api/appointments/book/ HTTP/1.1" 201 1024
+[2026-09-11 11:28:27,992] INFO django.server "GET /api/appointments/doctors/ HTTP/1.1" 200 631
+[2026-09-11 11:30:34,332] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:30:34,336] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:30:39,571] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:30:39,576] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:30:50,663] INFO django.server "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+[2026-09-11 11:30:50,669] WARNING django.request Bad Request: /api/auth/login/
+[2026-09-11 11:30:50,670] WARNING django.server "POST /api/auth/login/ HTTP/1.1" 400 73
+[2026-09-11 11:30:58,606] INFO django.server "GET /api/news/ HTTP/1.1" 200 1414
+[2026-09-11 11:31:05,213] INFO django.server "GET /api/news/?category=%D9%87%D9%85%D8%A7%DB%8C%D8%B4%E2%80%8C%D9%87%D8%A7 HTTP/1.1" 200 644
+[2026-09-11 11:31:07,582] INFO django.server "GET /api/news/?category=%D8%AA%D8%AD%D9%82%DB%8C%D9%82%D8%A7%D8%AA%20%D8%A8%D8%A7%D9%84%DB%8C%D9%86%DB%8C HTTP/1.1" 200 771
+[2026-09-11 11:31:11,383] INFO django.server "GET /api/academy/courses/ HTTP/1.1" 200 1105
+[2026-09-11 11:31:15,981] INFO django.server "GET /api/videos/ HTTP/1.1" 200 3891
+[2026-09-11 11:31:23,915] INFO django.server "GET /api/appointments/doctors/ HTTP/1.1" 200 631
+[2026-09-11 11:31:24,989] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:31:24,995] INFO django.server "GET /api/news/ HTTP/1.1" 200 1414
+[2026-09-11 11:31:24,999] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:32:09,327] INFO django.server "GET /api/health/ HTTP/1.1" 200 31
+[2026-09-11 11:32:09,585] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:32:09,841] INFO django.server "GET /api/news/ HTTP/1.1" 200 1414
+[2026-09-11 11:32:10,097] INFO django.server "GET /api/academy/courses/ HTTP/1.1" 200 1105
+[2026-09-11 11:32:10,354] INFO django.server "GET /api/videos/ HTTP/1.1" 200 3891
+[2026-09-11 11:33:11,652] INFO django.server "GET /api/news/ HTTP/1.1" 200 1414
+[2026-09-11 11:37:13,660] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:37:13,668] INFO django.server "GET /api/news/ HTTP/1.1" 200 1414
+[2026-09-11 11:37:13,674] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:37:22,716] WARNING django.request Bad Request: /api/auth/login/
+[2026-09-11 11:37:22,716] WARNING django.server "POST /api/auth/login/ HTTP/1.1" 400 73
+[2026-09-11 11:37:27,227] INFO django.server "POST /api/auth/login/ HTTP/1.1" 200 918
+[2026-09-11 11:37:27,375] INFO django.server "OPTIONS /api/appointments/mine/ HTTP/1.1" 200 0
+[2026-09-11 11:37:27,383] INFO django.server "GET /api/appointments/mine/ HTTP/1.1" 200 2
+[2026-09-11 11:37:31,211] INFO django.server "OPTIONS /api/admin/stats/ HTTP/1.1" 200 0
+[2026-09-11 11:37:31,249] INFO django.server "GET /api/admin/stats/ HTTP/1.1" 200 2325
+[2026-09-11 11:37:35,908] INFO django.server "OPTIONS /api/admin/appointments/ HTTP/1.1" 200 0
+[2026-09-11 11:37:35,918] INFO django.server "GET /api/admin/appointments/ HTTP/1.1" 200 1026
+[2026-09-11 11:37:38,371] INFO django.server "OPTIONS /api/admin/appointments/50489df1-32d0-4750-a912-1c6154bbeb77/status/ HTTP/1.1" 200 0
+[2026-09-11 11:37:38,419] INFO django.server "PATCH /api/admin/appointments/50489df1-32d0-4750-a912-1c6154bbeb77/status/ HTTP/1.1" 200 1026
+[2026-09-11 11:37:38,428] INFO django.server "GET /api/admin/appointments/ HTTP/1.1" 200 1028
+[2026-09-11 11:37:41,077] INFO django.server "PATCH /api/admin/appointments/50489df1-32d0-4750-a912-1c6154bbeb77/status/ HTTP/1.1" 200 1026
+[2026-09-11 11:37:41,087] INFO django.server "GET /api/admin/appointments/ HTTP/1.1" 200 1028
+[2026-09-11 11:37:47,323] INFO django.server "OPTIONS /api/admin/videos/ HTTP/1.1" 200 0
+[2026-09-11 11:37:47,340] INFO django.server "GET /api/admin/videos/ HTTP/1.1" 200 3891
+[2026-09-11 11:38:03,251] INFO django.server "GET /api/videos/ HTTP/1.1" 200 3891
+[2026-09-11 11:38:23,190] INFO django.server "GET /api/news/ HTTP/1.1" 200 1414
+[2026-09-11 11:38:25,241] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383
+[2026-09-11 11:38:25,247] INFO django.server "GET /api/news/ HTTP/1.1" 200 1414
+[2026-09-11 11:38:25,253] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 383

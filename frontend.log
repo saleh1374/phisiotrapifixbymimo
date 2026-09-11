@@ -1,0 +1,88 @@
+
+> physio-clinic-frontend@0.1.0 dev
+> next dev -p 3000
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 4.4s (798 modules)
+ GET / 200 in 4769ms
+ GET / 200 in 75ms
+ GET / 200 in 107ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1472ms (840 modules)
+ GET /login 200 in 1762ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 908ms (831 modules)
+ ○ Compiling /appointment ...
+ ✓ Compiled /appointment in 523ms (843 modules)
+ GET /appointment 200 in 735ms
+ ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 3.6s
+ ○ Compiling / ...
+ ✓ Compiled / in 5.1s (798 modules)
+ GET / 200 in 5884ms
+ ○ Compiling /icon.svg ...
+ ✓ Compiled /icon.svg in 4.5s (437 modules)
+ GET /icon.svg 200 in 4682ms
+ GET /icon.svg 200 in 125ms
+ GET / 200 in 1905ms
+ GET / 200 in 74ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 794ms (872 modules)
+ GET /icon.svg 200 in 31ms
+ ✓ Compiled /register in 281ms (825 modules)
+ GET /icon.svg 200 in 11ms
+ ○ Compiling /magazine ...
+ ✓ Compiled /magazine in 532ms (841 modules)
+ GET /icon.svg 200 in 16ms
+ ✓ Compiled /academy in 410ms (855 modules)
+ GET /icon.svg 200 in 19ms
+ ○ Compiling /videos ...
+ ✓ Compiled /videos in 618ms (869 modules)
+ GET /icon.svg 200 in 15ms
+ ○ Compiling /appointment ...
+ ✓ Compiled /appointment in 687ms (895 modules)
+ GET /icon.svg 200 in 17ms
+ GET /icon.svg 200 in 15ms
+ GET /magazine 200 in 133ms
+ GET /icon.svg 200 in 15ms
+ GET / 200 in 75ms
+ GET /appointment 200 in 47ms
+ GET /videos 200 in 49ms
+ GET /academy 200 in 35ms
+ GET /magazine 200 in 30ms
+ GET /login 200 in 54ms
+ GET /register 200 in 38ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 681ms (909 modules)
+ GET /dashboard 200 in 802ms
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 5.3s (1940 modules)
+ GET /admin 200 in 5631ms
+ GET /icon.svg 200 in 32ms
+ GET /magazine 200 in 55ms
+ GET /icon.svg 200 in 22ms
+ GET /icon.svg 200 in 29ms
+ GET /icon.svg 200 in 18ms
+ GET /icon.svg 200 in 18ms
+ GET /icon.svg 200 in 33ms
+ ○ Compiling /admin/appointments ...
+ ✓ Compiled /admin/appointments in 978ms (1936 modules)
+ GET /icon.svg 200 in 30ms
+ ○ Compiling /admin/videos ...
+ ✓ Compiled /admin/videos in 1034ms (1932 modules)
+ GET /icon.svg 200 in 21ms
+ ✓ Compiled /videos in 374ms (1014 modules)
+ GET /icon.svg 200 in 17ms
+ GET /icon.svg 200 in 20ms
+ GET /magazine 200 in 136ms
+ GET /icon.svg 200 in 17ms
+ GET /icon.svg 200 in 21ms

@@ -46,10 +46,10 @@ def seed():
 
     # --- Users ---
     doctors_data = [
-        {"username": "dr_rahimi", "full_name": "دکتر مریم رحیمی", "phone_number": "09121000001",
+        {"username": "dr_sara", "full_name": "دکتر سارا محمدی", "phone_number": "09121000001",
          "specialty": "فیزیوتراپی ارتوپدیک", "medical_license_number": "۱۲۳۴۵",
          "bio": "فوق تخصص فیزیوتراپی ارتوپدیک با ۱۵ سال سابقه کاری. عضو انجمن فیزیوتراپی ایران."},
-        {"username": "dr_karimi", "full_name": "دکتر علی کریمی", "phone_number": "09121000002",
+        {"username": "dr_amir", "full_name": "دکتر علی کریمی", "phone_number": "09121000002",
          "specialty": "فیزیوتراپی عصبی", "medical_license_number": "۱۲۳۴۶",
          "bio": "متخصص فیزیوتراپی عصبی و توانبخشی بیماران سکته مغزی."},
         {"username": "dr_mohammadi", "full_name": "دکتر سارا محمدی", "phone_number": "09121000003",
@@ -75,7 +75,7 @@ def seed():
             },
         )
         if created:
-            user.password = make_password("doctor1234")
+            user.password = make_password("demo1234")
             user.save(update_fields=["password"])
         doctor_users.append(user)
         status = "CREATED" if created else "EXISTS"
@@ -106,7 +106,7 @@ def seed():
             },
         )
         if created:
-            user.password = make_password("patient1234")
+            user.password = make_password("demo1234")
             user.save(update_fields=["password"])
         patient_users.append(user)
         status = "CREATED" if created else "EXISTS"
@@ -453,14 +453,7 @@ def seed():
     print("[OK] Orders")
 
     print("\n=== Seeding complete! ===")
-    print(f"\nTotal:")
-    print(f"  Users:      {User.objects.count()}")
-    print(f"  Courses:    {Course.objects.count()}")
-    print(f"  Chapters:   {CourseChapter.objects.count()}")
-    print(f"  Videos:     {Video.objects.count()}")
-    print(f"  News:       {NewsFeed.objects.count()}")
-    print(f"  Appointments: {Appointment.objects.count()}")
-    print(f"  Orders:     {Order.objects.count()}")
+    print("\nDemo logins:  admin/admin123   doctors → dr_sara, dr_amir, dr_mohammadi, dr_hashemi (demo1234)   patients (demo1234)")
 
 
 if __name__ == "__main__":
