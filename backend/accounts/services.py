@@ -10,6 +10,22 @@ from .models import OTP, User
 logger = logging.getLogger(__name__)
 
 
+def _google_client_id() -> str:
+    """Resolve the Google Client ID.
+
+    Priority: admin panel setting (siteconfig) → environment variable.
+    This lets the admin configure/rotate the client ID from the panel
+    without touching the backend .env file.
+    """
+    from siteconfig.models import SiteSetting
+
+    try:
+        client_id = (SiteSetting.get().google_client_id or "").strip()
+    except Exception:
+        client_id = ""
+    return client_id or getattr(settings, "GOOGLE_CLIENT_ID", "")
+
+
 def verify_google_token(id_token: str) -> dict:
     """Verify a Google ID token using the google-auth library.
 
@@ -19,7 +35,7 @@ def verify_google_token(id_token: str) -> dict:
     from google.oauth2 import id_token as google_id_token
     from google.auth.transport import requests as google_requests
 
-    client_id = getattr(settings, "GOOGLE_CLIENT_ID", "")
+    client_id = _google_client_id()
     if not client_id:
         raise ValueError("ورود با گوگل هنوز پیکربندی نشده است")
 

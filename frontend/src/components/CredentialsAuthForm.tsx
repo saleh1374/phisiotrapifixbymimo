@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useQuery } from "@tanstack/react-query";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -13,7 +14,9 @@ import { apiFetch, errorMessage } from "@/lib/api";
 import { useAuthStore } from "@/stores/auth";
 import type { AuthResponse } from "@/types";
 
-const GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? "";
+// Build-time fallback; the admin-panel value (fetched from /public/settings/)
+// takes priority so the ID can be configured without redeploying.
+const ENV_GOOGLE_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? "";
 
 declare global {
   interface Window {
@@ -58,6 +61,10 @@ const registerSchema = z.object({
 type LoginForm = z.infer<typeof loginSchema>;
 type RegisterForm = z.infer<typeof registerSchema>;
 
+interface PublicSettings {
+  google_client_id?: string;
+}
+
 export default function CredentialsAuthForm({
   mode,
 }: {
@@ -68,6 +75,15 @@ export default function CredentialsAuthForm({
   const googleButtonRef = useRef<HTMLDivElement | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
+
+  // Google Client ID configured from the admin panel (falls back to env).
+  const { data: publicSettings } = useQuery({
+    queryKey: ["public-settings"],
+    queryFn: () => apiFetch<PublicSettings>("/public/settings/", {}, false),
+    staleTime: 5 * 60_000,
+  });
+  const googleClientId =
+    publicSettings?.google_client_id?.trim() || ENV_GOOGLE_CLIENT_ID;
 
   const loginForm = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
@@ -107,15 +123,16 @@ export default function CredentialsAuthForm({
   );
 
   // Load Google Identity Services and render the sign-in button.
+  // Depends on the resolved client ID: panel value first, env fallback second.
   useEffect(() => {
-    if (!GOOGLE_CLIENT_ID) return;
+    if (!googleClientId) return;
     const script = document.createElement("script");
     script.src = "https://accounts.google.com/gsi/client";
     script.async = true;
     script.defer = true;
     script.onload = () => {
       window.google?.accounts.id.initialize({
-        client_id: GOOGLE_CLIENT_ID,
+        client_id: googleClientId,
         callback: (res) => googleLogin(res.credential),
       });
       if (googleButtonRef.current) {
@@ -132,7 +149,7 @@ export default function CredentialsAuthForm({
     return () => {
       document.head.removeChild(script);
     };
-  }, [googleLogin]);
+  }, [googleLogin, googleClientId]);
 
   const submitting = loginForm.formState.isSubmitting || registerForm.formState.isSubmitting;
 
@@ -344,7 +361,7 @@ export default function CredentialsAuthForm({
         </form>
       )}
 
-      {GOOGLE_CLIENT_ID && (
+      {googleClientId && (
         <>
           <div className="my-5 flex items-center gap-3 text-xs text-navy/40">
             <span className="h-px flex-1 bg-navy/10" />

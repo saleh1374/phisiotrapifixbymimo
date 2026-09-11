@@ -1,25 +1,33 @@
 import datetime
 
 import feedparser
+import requests
 from django.core.management.base import BaseCommand
 
 from news.models import NewsFeed
 from news.services import enrich_article
 
+# Browser-like UA: several hosts (e.g. WordPress blogs) reject the default
+# python-requests / feedparser user agent with 403.
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; PhysioClinicNewsBot/1.0)"}
+
 RSS_FEEDS = [
-    # Physiotherapy
-    "https://mikereinold.com/feed",
+    # Physiotherapy blogs (WordPress)
     "https://www.e3rehab.com/feed",
-    "https://www.physio-network.com/feed/",
     "https://www.physiotutors.com/feed/",
-    "https://www.thesportphysio.com/feed/",
-    "https://www.pogophysio.com.au/feed/",
     # Health & Medicine (ScienceDaily — fast, reliable)
     "https://www.sciencedaily.com/rss/health_medicine.xml",
     "https://www.sciencedaily.com/rss/science_society.xml",
-    # PubMed / NCBI
-    "https://pubmed.ncbi.nlm.nih.gov/rss/search/1k-GZP-OPQNjL5EYkCQpS2kWCYFc-3P-yQRnNqVSfJ-b8j5oq/",
+    "https://www.sciencedaily.com/rss/health_medicine/fitness.xml",
+    # Frontiers in Rehabilitation Sciences (peer-reviewed)
+    "https://www.frontiersin.org/journals/rehabilitation-sciences/rss",
+    # Google News — pre-filtered searches, very reliable (EN + FA editions)
+    "https://news.google.com/rss/search?q=physiotherapy+OR+%22physical+therapy%22+OR+rehabilitation&hl=en-US&gl=US&ceid=US:en",
+    "https://news.google.com/rss/search?q=physiotherapy&hl=fa&gl=IR&ceid=IR:fa",
 ]
+# Feeds that started returning 403 (bot protection) — kept for reference:
+#   mikereinold.com/feed, physio-network.com, thesportphysio.com,
+#   pogophysio.com.au, pubmed.ncbi.nlm.nih.gov (search RSS needs cookies)
 
 
 class Command(BaseCommand):
@@ -29,7 +37,12 @@ class Command(BaseCommand):
         total_new = 0
         for feed_url in RSS_FEEDS:
             try:
-                feed = feedparser.parse(feed_url)
+                # Fetch with a browser-like UA, then parse the raw bytes.
+                resp = requests.get(feed_url, timeout=15, headers=HEADERS)
+                if resp.status_code != 200:
+                    self.stderr.write(f"HTTP {resp.status_code} for {feed_url}")
+                    continue
+                feed = feedparser.parse(resp.content)
             except Exception as exc:
                 self.stderr.write(f"Error reading {feed_url}: {exc}")
                 continue
