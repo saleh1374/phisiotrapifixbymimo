@@ -230,4 +230,5 @@ class MeView(generics.RetrieveUpdateAPIView):
         serializer = ProfileUpdateSerializer(instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+        instance.refresh_from_db()
         return Response(UserSerializer(instance).data)

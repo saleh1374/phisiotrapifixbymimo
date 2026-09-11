@@ -31,7 +31,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # Doctor-only fields
     medical_license_number = models.CharField("شماره نظام پزشکی", max_length=50, blank=True)
     specialty = models.CharField("تخصص", max_length=100, blank=True)
-    bio = models.TextField("بیوگرافی", blank=True)
+    bio = models.TextField("بیوگرافی", blank=True, null=True)
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

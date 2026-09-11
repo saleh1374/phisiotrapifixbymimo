@@ -4,6 +4,7 @@ export interface User {
   id: string;
   username: string | null;
   full_name: string;
+  national_code: string | null;
   phone_number: string;
   email: string | null;
   role: UserRole;

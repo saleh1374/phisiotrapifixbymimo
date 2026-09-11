@@ -15,6 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
             "id",
             "username",
             "full_name",
+            "national_code",
             "phone_number",
             "email",
             "role",
@@ -26,24 +27,39 @@ class UserSerializer(serializers.ModelSerializer):
             "is_active",
             "created_at",
         ]
-        read_only_fields = ["id", "username", "phone_number", "role", "is_active", "created_at"]
+        read_only_fields = ["id", "username", "role", "is_active", "created_at"]
 
 
 class ProfileUpdateSerializer(serializers.ModelSerializer):
-    """Allows a user to update their own profile (phone is immutable)."""
+    """Allows a user to update their own profile."""
 
     class Meta:
         model = User
-        fields = ["full_name", "email", "national_code", "profile_pic", "bio"]
+        fields = ["full_name", "phone_number", "email", "national_code", "profile_pic", "bio"]
         extra_kwargs = {
-            "email": {"required": False, "allow_null": True},
-            "national_code": {"required": False, "allow_null": True},
+            "full_name": {"required": False, "allow_blank": True},
+            "phone_number": {"required": False},
+            "email": {"required": False, "allow_null": True, "allow_blank": True},
+            "national_code": {"required": False, "allow_null": True, "allow_blank": True},
+            "profile_pic": {"required": False, "allow_blank": True},
+            "bio": {"required": False, "allow_null": True, "allow_blank": True},
         }
 
-    def validate_national_code(self, value: str) -> str:
+    def validate_phone_number(self, value):
+        if not value or not value.strip():
+            return self.instance.phone_number
+        try:
+            phone = services.normalize_phone(value)
+        except ValueError as exc:
+            raise serializers.ValidationError(str(exc))
+        if User.objects.filter(phone_number=phone).exclude(pk=self.instance.pk).exists():
+            raise serializers.ValidationError("این شماره موبایل قبلاً ثبت شده است")
+        return phone
+
+    def validate_national_code(self, value):
         """Validate Iranian national code (کد ملی) using the official algorithm."""
-        if not value:
-            return value
+        if not value or not value.strip():
+            return None
         code = value.strip()
         if not code.isdigit() or len(code) != 10:
             raise serializers.ValidationError("کد ملی باید ۱۰ رقم باشد")
@@ -59,6 +75,16 @@ class ProfileUpdateSerializer(serializers.ModelSerializer):
             if check_digit != 11 - remainder:
                 raise serializers.ValidationError("کد ملی نامعتبر است")
         return code
+
+    def validate_email(self, value):
+        if value is not None and not value.strip():
+            return None
+        return value
+
+    def validate_bio(self, value):
+        if value is not None and not value.strip():
+            return None
+        return value
 
 
 class OTPRequestSerializer(serializers.Serializer):
