@@ -23,7 +23,7 @@ export default function LoginPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/90 via-navy-dark/20 to-transparent" />
           <div className="absolute bottom-0 p-8 text-white">
-            <h1 className="text-2xl font-black">خوش آمدید 🌿</h1>
+            <h1 className="text-2xl font-black">خوش آمدید</h1>
             <p className="mt-2 text-sm leading-7 text-white/80">
               با نام کاربری و رمز عبور یا حساب گوگل وارد شوید؛ نوبت رزرو کنید،
               فیلم‌های تجویزی پزشک را ببینید و به دوره‌های آکادمی دسترسی داشته باشید.

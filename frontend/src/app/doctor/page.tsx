@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Check, CheckCheck, Loader2, UserRound, Video as VideoIcon, XCircle } from "lucide-react";
+import { Check, CheckCheck, Inbox, Loader2, UserRound, Video as VideoIcon, XCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -80,7 +80,7 @@ export default function DoctorPage() {
         body: JSON.stringify({ patient_id: patientId, video_ids: videoIds, due_date: dueDate }),
       }),
     onSuccess: () => {
-      setPrescribeMsg("فیلم‌ها با موفقیت برای بیمار تجویز شد ✅");
+      setPrescribeMsg("فیلم‌ها با موفقیت برای بیمار تجویز شد");
       setVideoIds([]);
       setPatientId("");
       setDueDate("");
@@ -95,7 +95,7 @@ export default function DoctorPage() {
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6">
-      <h1 className="text-2xl font-black">پنل پزشک 👩‍⚕️</h1>
+      <h1 className="text-2xl font-black">پنل پزشک</h1>
       <p className="mt-2 text-navy/60">{user.full_name} — {user.specialty || "فیزیوتراپیست"}</p>
 
       {/* Tabs */}
@@ -212,7 +212,7 @@ export default function DoctorPage() {
           <LoadingState />
         ) : appointments.length === 0 ? (
           <EmptyState
-            icon="📭"
+            icon={Inbox}
             title={tab === "history" ? "هنوز نوبتی ثبت نشده" : "نوبتی برای امروز ندارید"}
             description="وقتی بیماران نوبت بگیرند، اینجا نمایش داده می‌شود."
           />
@@ -238,7 +238,7 @@ export default function DoctorPage() {
                     {a.service_type_display}
                   </span>
                 </p>
-                {a.description && <p className="mt-1 text-sm text-navy/50">📝 {a.description}</p>}
+                {a.description && <p className="mt-1 text-sm text-navy/50">{a.description}</p>}
               </div>
               <StatusBadge status={a.status} label={a.status_display} />
               {a.status === "pending" || a.status === "confirmed" ? (

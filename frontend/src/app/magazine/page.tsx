@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { CalendarDays, Newspaper } from "lucide-react";
+import { CalendarDays, Newspaper, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -76,7 +76,7 @@ export default function MagazinePage() {
       ) : articles.length === 0 ? (
         <div className="mt-8">
           <EmptyState
-            icon="📰"
+            icon={BookOpen}
             title="خبری یافت نشد"
             description="در این دسته هنوز خبری منتشر نشده است."
           />
@@ -98,8 +98,8 @@ export default function MagazinePage() {
                   className="aspect-video w-full object-cover"
                 />
               ) : (
-                <div className="flex aspect-video w-full items-center justify-center bg-gradient-to-br from-navy to-emerald text-6xl">
-                  📰
+                <div className="flex aspect-video w-full items-center justify-center bg-gradient-to-br from-navy to-emerald">
+                  <Newspaper className="h-14 w-14 text-white/70" />
                 </div>
               )}
               <div className="p-5">

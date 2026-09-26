@@ -37,8 +37,17 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -116,7 +125,8 @@ export default function Header() {
                 title="پروفایل من"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-navy/15 px-4 text-sm font-medium text-navy/80 hover:bg-navy/5"
               >
-                👤 پروفایل من
+                <User className="h-4 w-4" />
+                پروفایل من
               </Link>
               {user.role === "admin" && (
                 <Link
@@ -168,7 +178,12 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-navy/10 bg-white/95 backdrop-blur">
+      <header
+        className={cn(
+          "sticky top-0 z-50 border-b bg-white/90 backdrop-blur transition-all duration-300",
+          scrolled ? "border-navy/10 shadow-[0_8px_30px_-12px_rgba(27,42,74,0.18)]" : "border-transparent"
+        )}
+      >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
           <Logo />
 
@@ -178,14 +193,18 @@ export default function Header() {
                 <Link
                   href={link.href}
                   title={link.label}
+                  aria-current={pathname === link.href ? "page" : undefined}
                   className={cn(
-                    "inline-flex min-h-12 items-center rounded-lg px-4 text-sm font-medium transition-colors",
+                    "relative inline-flex min-h-12 items-center rounded-lg px-4 text-sm font-medium transition-colors",
                     pathname === link.href
-                      ? "bg-navy/5 text-emerald"
+                      ? "text-emerald"
                       : "text-navy/80 hover:bg-navy/5 hover:text-navy"
                   )}
                 >
                   {link.label}
+                  {pathname === link.href && (
+                    <span className="absolute inset-x-4 bottom-1.5 h-0.5 rounded-full bg-emerald" />
+                  )}
                 </Link>
               </li>
             ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { Eye, PlayCircle, Search } from "lucide-react";
+import { Eye, PlayCircle, Search, Clapperboard } from "lucide-react";
 import { useState } from "react";
 
 import EmptyState from "@/components/EmptyState";
@@ -45,7 +45,7 @@ export default function VideosPage() {
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6">
-      <h1 className="text-2xl font-black">کتابخانه فیلم‌های آموزشی 🎬</h1>
+      <h1 className="text-2xl font-black">کتابخانه فیلم‌های آموزشی</h1>
       <p className="mt-2 text-navy/60">
         تمرینات استاندارد برای هر ناحیه از بدن — تهیه‌شده توسط تیم فیزیوتراپی کلینیک
       </p>
@@ -109,7 +109,7 @@ export default function VideosPage() {
       ) : videos.length === 0 ? (
         <div className="mt-8">
           <EmptyState
-            icon="🎬"
+            icon={Clapperboard}
             title="فیلمی یافت نشد"
             description="با فیلترهای دیگری جستجو کنید یا بعداً دوباره سر بزنید."
           />
@@ -131,8 +131,8 @@ export default function VideosPage() {
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={v.thumbnail} alt={v.title} className="h-full w-full object-cover" />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-navy to-emerald text-5xl">
-                    🎥
+                  <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-navy to-emerald">
+                    <Clapperboard className="h-14 w-14 text-white/70" />
                   </div>
                 )}
                 <span className="absolute inset-0 flex items-center justify-center bg-navy-dark/30 opacity-0 transition-opacity group-hover:opacity-100">

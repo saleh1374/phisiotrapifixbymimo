@@ -1,5 +1,6 @@
 "use client";
 
+import { TriangleAlert } from "lucide-react";
 import { useEffect } from "react";
 
 export default function ErrorPage({
@@ -18,8 +19,8 @@ export default function ErrorPage({
 
   return (
     <section className="mx-auto flex min-h-[70vh] w-full max-w-7xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6">
-      <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-red-50 text-4xl">
-        😕
+      <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-red-50">
+        <TriangleAlert className="h-9 w-9 text-red-500" />
       </div>
       <h1 className="mt-6 text-2xl font-bold">مشکلی پیش آمد</h1>
       <p className="mt-3 max-w-md leading-8 text-navy/60">

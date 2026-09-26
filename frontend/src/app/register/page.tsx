@@ -23,7 +23,7 @@ export default function RegisterPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-emerald/90 via-emerald/20 to-transparent" />
           <div className="absolute bottom-0 p-8 text-white">
-            <h1 className="text-2xl font-black">به جمع ما بپیوندید ✨</h1>
+            <h1 className="text-2xl font-black">به جمع ما بپیوندید</h1>
             <p className="mt-2 text-sm leading-7 text-white/85">
               ثبت‌نام با نام کاربری و رمز عبور یا حساب گوگل، فقط در چند ثانیه.
               حساب شما ساخته می‌شود و به تمام خدمات کلینیک دسترسی خواهید داشت.

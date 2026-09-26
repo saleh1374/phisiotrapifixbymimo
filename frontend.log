@@ -1,88 +1,219 @@
 
 > physio-clinic-frontend@0.1.0 dev
-> next dev -p 3000
+> next dev
 
   ▲ Next.js 14.2.35
-  - Local:        http://localhost:3000
+  - Local:        http://localhost:49912
 
  ✓ Starting...
- ✓ Ready in 2.1s
- ○ Compiling / ...
- ✓ Compiled / in 4.4s (798 modules)
- GET / 200 in 4769ms
- GET / 200 in 75ms
- GET / 200 in 107ms
- ○ Compiling /login ...
- ✓ Compiled /login in 1472ms (840 modules)
- GET /login 200 in 1762ms
- ○ Compiling /dashboard ...
- ✓ Compiled /dashboard in 908ms (831 modules)
- ○ Compiling /appointment ...
- ✓ Compiled /appointment in 523ms (843 modules)
- GET /appointment 200 in 735ms
- ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
-  ▲ Next.js 14.2.35
-  - Local:        http://localhost:3000
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
 
- ✓ Starting...
- ✓ Ready in 3.6s
+ ✓ Ready in 1605ms
  ○ Compiling / ...
- ✓ Compiled / in 5.1s (798 modules)
- GET / 200 in 5884ms
+ ✓ Compiled / in 3.9s (800 modules)
+ GET / 200 in 4182ms
+ GET / 200 in 44ms
+ GET / 200 in 104ms
+ ✓ Compiled /icon.svg in 340ms (438 modules)
+ GET /icon.svg 200 in 413ms
+ GET / 200 in 199ms
+ GET /icon.svg 200 in 9ms
+ ✓ Compiled in 711ms (800 modules)
+ ✓ Compiled in 246ms (394 modules)
+ ✓ Compiled in 337ms (394 modules)
+ ✓ Compiled in 636ms (804 modules)
+ ✓ Compiled in 410ms (804 modules)
+ ✓ Compiled in 844ms (810 modules)
+ ✓ Compiled in 448ms (810 modules)
+ ✓ Compiled in 373ms (810 modules)
+ ✓ Compiled in 445ms (810 modules)
+ ✓ Compiled in 204ms (396 modules)
+ ✓ Compiled in 175ms (396 modules)
+ ✓ Compiled in 162ms (396 modules)
+ ✓ Compiled in 166ms (396 modules)
+ ✓ Compiled in 141ms (396 modules)
+ ✓ Compiled in 219ms (396 modules)
+ ✓ Compiled in 150ms (396 modules)
+ ✓ Compiled in 155ms (396 modules)
+ ✓ Compiled in 232ms (396 modules)
+ ✓ Compiled in 182ms (396 modules)
+ ✓ Compiled in 229ms (396 modules)
+ ✓ Compiled in 176ms (396 modules)
+ ✓ Compiled in 234ms (396 modules)
+ ✓ Compiled in 593ms (814 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 421ms
+ GET / 200 in 340ms
+ ✓ Compiled in 439ms (814 modules)
+ ✓ Compiled in 154ms (398 modules)
+ ✓ Compiled in 457ms (814 modules)
+ ✓ Compiled in 215ms (398 modules)
+ ✓ Compiled in 361ms (814 modules)
+ ✓ Compiled in 251ms (398 modules)
+ ✓ Compiled in 228ms (814 modules)
+ ✓ Compiled in 265ms (814 modules)
+ ✓ Compiled in 428ms (814 modules)
+ ✓ Compiled in 178ms (398 modules)
+ ✓ Compiled /icon.svg in 424ms (448 modules)
+ GET /icon.svg 200 in 626ms
+ GET / 200 in 863ms
+ GET / 200 in 562ms
+ ✓ Compiled in 571ms (814 modules)
+ GET / 200 in 218ms
+ ✓ Compiled in 516ms (814 modules)
  ○ Compiling /icon.svg ...
- ✓ Compiled /icon.svg in 4.5s (437 modules)
- GET /icon.svg 200 in 4682ms
- GET /icon.svg 200 in 125ms
- GET / 200 in 1905ms
- GET / 200 in 74ms
- ○ Compiling /login ...
- ✓ Compiled /login in 794ms (872 modules)
- GET /icon.svg 200 in 31ms
- ✓ Compiled /register in 281ms (825 modules)
- GET /icon.svg 200 in 11ms
- ○ Compiling /magazine ...
- ✓ Compiled /magazine in 532ms (841 modules)
- GET /icon.svg 200 in 16ms
- ✓ Compiled /academy in 410ms (855 modules)
- GET /icon.svg 200 in 19ms
+ ✓ Compiled /icon.svg in 1406ms (448 modules)
+ GET /icon.svg 200 in 1536ms
+ GET / 200 in 429ms
+ GET / 200 in 124ms
  ○ Compiling /videos ...
- ✓ Compiled /videos in 618ms (869 modules)
- GET /icon.svg 200 in 15ms
+ ✓ Compiled /videos in 1165ms (789 modules)
+ GET /videos 200 in 1350ms
+ GET /videos 200 in 47ms
+ GET / 200 in 180ms
+ ✓ Compiled /icon.svg in 292ms (462 modules)
+ GET /icon.svg 200 in 382ms
+ GET /icon.svg 200 in 10ms
+ ✓ Compiled /magazine in 419ms (835 modules)
+ GET /icon.svg 200 in 22ms
+ ✓ Compiled /academy in 325ms (847 modules)
+ GET /icon.svg 200 in 17ms
+ GET /icon.svg 200 in 13ms
  ○ Compiling /appointment ...
- ✓ Compiled /appointment in 687ms (895 modules)
+ ✓ Compiled /appointment in 855ms (881 modules)
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1233ms (919 modules)
+ GET /icon.svg 200 in 1273ms
+ GET /icon.svg 200 in 14ms
+ GET /icon.svg 200 in 17ms
+ GET /icon.svg 200 in 37ms
+ GET /icon.svg 200 in 20ms
+ GET /icon.svg 200 in 15ms
+ GET /videos 200 in 161ms
+ GET /icon.svg 200 in 12ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 503ms (872 modules)
+ GET /api-proxy-test 404 in 672ms
+ GET /headers-test-404 404 in 33ms
+ GET / 200 in 100ms
+ GET / 200 in 74ms
+ ○ Compiling /icon.svg ...
+ ✓ Compiled /icon.svg in 691ms (498 modules)
+ GET /icon.svg 200 in 984ms
+ GET /videos 200 in 1087ms
+ GET / 200 in 1096ms
+ GET /academy 200 in 58ms
+ GET /icon.svg 200 in 13ms
+ GET /academy 200 in 245ms
+ GET / 200 in 269ms
+ GET /icon.svg 200 in 32ms
+ GET /academy 200 in 41ms
+ GET /icon.svg 200 in 11ms
+ GET /academy 200 in 38ms
+ GET /icon.svg 200 in 13ms
+ GET /login 200 in 63ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 1547ms (893 modules)
+ ○ Compiling /appointment ...
+ ✓ Compiled /appointment in 570ms (487 modules)
+ GET / 200 in 185ms
+ ✓ Compiled /icon.svg in 383ms (512 modules)
+ GET /icon.svg 200 in 465ms
+ GET /icon.svg 200 in 19ms
+ GET /icon.svg 200 in 28ms
+ GET /icon.svg 200 in 22ms
+ ○ Compiling /register ...
+ ✓ Compiled /register in 639ms (926 modules)
+ GET /icon.svg 200 in 28ms
+ GET /icon.svg 200 in 26ms
+ GET /icon.svg 200 in 18ms
+ ○ Compiling /profile ...
+ ✓ Compiled /profile in 887ms (934 modules)
+ GET /icon.svg 200 in 17ms
+ GET /icon.svg 200 in 13ms
  GET /icon.svg 200 in 17ms
  GET /icon.svg 200 in 15ms
- GET /magazine 200 in 133ms
- GET /icon.svg 200 in 15ms
- GET / 200 in 75ms
- GET /appointment 200 in 47ms
- GET /videos 200 in 49ms
- GET /academy 200 in 35ms
- GET /magazine 200 in 30ms
- GET /login 200 in 54ms
- GET /register 200 in 38ms
- ○ Compiling /dashboard ...
- ✓ Compiled /dashboard in 681ms (909 modules)
- GET /dashboard 200 in 802ms
- ○ Compiling /admin ...
- ✓ Compiled /admin in 5.3s (1940 modules)
- GET /admin 200 in 5631ms
- GET /icon.svg 200 in 32ms
- GET /magazine 200 in 55ms
+ ✓ Compiled /videos in 451ms (521 modules)
  GET /icon.svg 200 in 22ms
- GET /icon.svg 200 in 29ms
- GET /icon.svg 200 in 18ms
- GET /icon.svg 200 in 18ms
- GET /icon.svg 200 in 33ms
- ○ Compiling /admin/appointments ...
- ✓ Compiled /admin/appointments in 978ms (1936 modules)
- GET /icon.svg 200 in 30ms
- ○ Compiling /admin/videos ...
- ✓ Compiled /admin/videos in 1034ms (1932 modules)
+ GET /icon.svg 200 in 16ms
+ ✓ Compiled /login in 239ms (524 modules)
+ GET /icon.svg 200 in 24ms
  GET /icon.svg 200 in 21ms
- ✓ Compiled /videos in 374ms (1014 modules)
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 5.7s (1961 modules)
+ ○ Compiling /doctor ...
+ ✓ Compiled /doctor in 3.7s (1977 modules)
+ GET /dashboard 200 in 1583ms
+ GET /icon.svg 200 in 29ms
+ GET /icon.svg 200 in 28ms
+ GET /icon.svg 200 in 16ms
+ GET /icon.svg 200 in 16ms
+ GET /icon.svg 200 in 17ms
+ ○ Compiling /academy ...
+ ✓ Compiled /academy in 541ms (1045 modules)
+ GET /icon.svg 200 in 30ms
+ ✓ Compiled /magazine in 254ms (1051 modules)
+ GET /icon.svg 200 in 21ms
+ GET /icon.svg 200 in 26ms
+ ○ Compiling /admin/users ...
+ ✓ Compiled /admin/users in 1177ms (1998 modules)
+ GET /icon.svg 200 in 22ms
+ ○ Compiling /admin/appointments ...
+ ✓ Compiled /admin/appointments in 558ms (2006 modules)
+ GET /icon.svg 200 in 19ms
+ ○ Compiling /admin/videos ...
+ ✓ Compiled /admin/videos in 964ms (2020 modules)
+ GET /icon.svg 200 in 20ms
+ GET /icon.svg 200 in 23ms
+ GET /icon.svg 200 in 22ms
+ GET /icon.svg 200 in 19ms
+ GET /icon.svg 200 in 16ms
+ GET /icon.svg 200 in 23ms
+ ○ Compiling /admin/courses ...
+ ✓ Compiled /admin/courses in 1162ms (1981 modules)
+ GET /icon.svg 200 in 29ms
+ ○ Compiling /admin/settings ...
+ ✓ Compiled /admin/settings in 1347ms (1992 modules)
+ GET /icon.svg 200 in 24ms
+ GET /admin/settings 200 in 126ms
+ GET /icon.svg 200 in 24ms
  GET /icon.svg 200 in 17ms
  GET /icon.svg 200 in 20ms
- GET /magazine 200 in 136ms
+ GET /icon.svg 200 in 19ms
  GET /icon.svg 200 in 17ms
+ GET /icon.svg 200 in 17ms
+ GET /icon.svg 200 in 24ms
+ GET /icon.svg 200 in 16ms
+ ○ Compiling /admin/orders ...
+ ✓ Compiled /admin/orders in 865ms (1973 modules)
+ GET /icon.svg 200 in 27ms
+ GET /icon.svg 200 in 11ms
  GET /icon.svg 200 in 21ms
+ ○ Compiling /videos ...
+ ✓ Compiled /videos in 630ms (1020 modules)
+ GET /icon.svg 200 in 31ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 673ms (1027 modules)
+ GET /icon.svg 200 in 16ms
+ ○ Compiling /doctor ...
+ ✓ Compiled /doctor in 598ms (1036 modules)
+ GET /icon.svg 200 in 35ms
+ GET /icon.svg 200 in 20ms
+ GET /icon.svg 200 in 19ms
+ ✓ Compiled /admin/orders in 231ms (1030 modules)
+ GET /icon.svg 200 in 20ms
+ GET /icon.svg 200 in 30ms
+ ✓ Compiled /admin/courses in 347ms (1017 modules)
+ GET /icon.svg 200 in 40ms
+ ○ Compiling /admin/videos ...
+ ✓ Compiled /admin/videos in 598ms (1023 modules)
+ GET /icon.svg 200 in 16ms
+ ✓ Compiled /admin/appointments in 254ms (1028 modules)
+ GET /icon.svg 200 in 28ms
+ GET /icon.svg 200 in 12ms
+ ✓ Compiled /admin/settings in 232ms (1035 modules)
+ GET /icon.svg 200 in 20ms

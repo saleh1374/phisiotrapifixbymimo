@@ -98,7 +98,7 @@ export default function AdminAppointmentsPage() {
                   {faLongDate(a.appointment_date)} — ساعت {faNum(a.start_time)} تا {faNum(a.end_time)}
                   <span className="mr-2 rounded-full bg-navy/5 px-2 py-0.5 text-xs font-bold">{a.service_type_display}</span>
                 </p>
-                {a.description && <p className="mt-1 text-sm text-navy/50">📝 {a.description}</p>}
+                {a.description && <p className="mt-1 text-sm text-navy/50">{a.description}</p>}
               </div>
               <StatusBadge status={a.status} label={a.status_display} />
               <div className="flex flex-wrap gap-2">

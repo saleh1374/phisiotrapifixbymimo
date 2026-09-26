@@ -119,7 +119,7 @@ export default function CourseDetailPage() {
       );
       if (data.certificate) {
         setCertificate(data.certificate);
-        setCompletedMsg("تبریک! شما دوره را با موفقیت به پایان رساندید و گواهی‌نامه شما صادر شد 🎉");
+        setCompletedMsg("تبریک! شما دوره را با موفقیت به پایان رساندید و گواهی‌نامه شما صادر شد");
       } else if (data.progress.certificate_ready === false) {
         setCompletedMsg(`سرفصل ثبت شد — پیشرفت: ٪${faNum(data.progress.percent)}`);
       }
@@ -295,7 +295,7 @@ export default function CourseDetailPage() {
                   <Lock className="h-4 w-4" /> پس از تهیه دوره
                 </span>
               ) : done ? (
-                <span className="text-sm font-bold text-emerald">✓ تکمیل شده</span>
+                <span className="text-sm font-bold text-emerald">تکمیل شده</span>
               ) : (
                 <button
                   type="button"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { BadgeCheck, ShieldAlert } from "lucide-react";
+import { Award, BadgeCheck, ShieldAlert } from "lucide-react";
 import { useParams } from "next/navigation";
 
 import LoadingState from "@/components/LoadingState";
@@ -51,7 +51,7 @@ export default function CertificateVerifyPage() {
         <div className="w-full overflow-hidden rounded-2xl border-2 border-emerald/30 bg-white shadow-2xl">
           {/* Certificate header */}
           <div className="bg-gradient-to-l from-navy to-emerald p-8 text-center text-white">
-            <p className="text-4xl">🏅</p>
+            <Award className="mx-auto h-12 w-12 text-gold" />
             <h1 className="mt-3 text-2xl font-black">گواهی‌نامه معتبر</h1>
             <p className="mt-1 text-sm text-white/70">آکادمی تخصصی فیزیوتراپی</p>
           </div>

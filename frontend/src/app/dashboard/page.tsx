@@ -4,7 +4,9 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   Award,
   CalendarDays,
+  CalendarPlus,
   CheckCircle2,
+  Clapperboard,
   Clock,
   GraduationCap,
   Loader2,
@@ -141,7 +143,7 @@ export default function DashboardPage() {
       <div className="rounded-2xl bg-gradient-to-l from-navy to-navy-light p-6 text-white shadow-xl sm:p-8">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="text-sm text-white/60">سلام 👋</p>
+            <p className="text-sm text-white/60">سلام</p>
             <h1 className="mt-1 text-2xl font-black">{user.full_name || faNum(user.phone_number)}</h1>
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <span className="rounded-full bg-emerald px-3 py-1 text-xs font-bold">{user.role_display}</span>
@@ -213,7 +215,7 @@ export default function DashboardPage() {
             <div className="mt-6 space-y-3">
               {upcoming.length === 0 && past.length === 0 ? (
                 <EmptyState
-                  icon="📅"
+                  icon={CalendarPlus}
                   title="هنوز نوبتی ثبت نکرده‌اید"
                   description="در چند ثانیه به‌صورت آنلاین نوبت بگیرید."
                   action={
@@ -300,7 +302,7 @@ export default function DashboardPage() {
 
               {myVideos.items.length === 0 ? (
                 <EmptyState
-                  icon="🎬"
+                  icon={Clapperboard}
                   title="تمرینی برای شما تجویز نشده"
                   description="پزشک شما بعد از معاینه، فیلم‌های تمرینی اختصاصی برایتان تجویز می‌کند."
                 />
@@ -316,7 +318,7 @@ export default function DashboardPage() {
                         <p className="mt-0.5 text-sm text-navy/60">
                           تجویز توسط {p.doctor_name} — سررسید {faDate(p.due_date)}
                         </p>
-                        {p.progress_note && <p className="mt-1 text-sm text-navy/50">📝 {p.progress_note}</p>}
+                        {p.progress_note && <p className="mt-1 text-sm text-navy/50">{p.progress_note}</p>}
                       </div>
                       <StatusBadge status={p.status_display} label={p.status_display} />
                       {p.is_done ? (
@@ -359,7 +361,7 @@ export default function DashboardPage() {
             <div className="mt-6">
               {certificates.length > 0 && (
                 <div className="mb-6 space-y-3">
-                  <p className="font-bold">گواهی‌نامه‌های من 🏅</p>
+                  <p className="font-bold">گواهی‌نامه‌های من</p>
                   {certificates.map((c) => (
                     <Link
                       key={c.id}
@@ -382,7 +384,7 @@ export default function DashboardPage() {
 
               {myCourses.length === 0 && certificates.length === 0 ? (
                 <EmptyState
-                  icon="🎓"
+                  icon={GraduationCap}
                   title="هنوز دوره‌ای تهیه نکرده‌اید"
                   description="از آکادمی تخصصی ما شروع کنید و با گواهی‌نامه معتبر مهارت بیاموزید."
                   action={
@@ -435,7 +437,7 @@ export default function DashboardPage() {
       {user.role !== "patient" && (
         <div className="mt-8">
           <EmptyState
-            icon="👩‍⚕️"
+            icon={Stethoscope}
             title="به پنل پزشک خوش آمدید"
             description="مدیریت نوبت‌ها، وضعیت بیماران و تجویز فیلم‌های آموزشی از پنل پزشک انجام می‌شود."
             action={

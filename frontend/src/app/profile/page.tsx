@@ -103,7 +103,7 @@ export default function ProfilePage() {
         national_code: updatedUser.national_code ?? "",
         bio: updatedUser.bio ?? "",
       });
-      setSuccessMsg("پروفایل با موفقیت به‌روزرسانی شد ✅");
+      setSuccessMsg("پروفایل با موفقیت به‌روزرسانی شد");
       setTimeout(() => setSuccessMsg(null), 4000);
     },
     onError: (e) => {
@@ -121,7 +121,7 @@ export default function ProfilePage() {
       <div className="rounded-2xl bg-gradient-to-l from-navy to-navy-light p-6 text-white shadow-xl sm:p-8">
         <div className="flex items-center gap-4">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/15 text-3xl font-black">
-            {profile?.full_name?.[0] || "👤"}
+            {profile?.full_name?.[0] || <User className="h-7 w-7" />}
           </div>
           <div className="min-w-0 flex-1">
             <h1 className="truncate text-xl font-black">

@@ -4,11 +4,15 @@ import { useQuery } from "@tanstack/react-query";
 import {
   ArrowRight,
   CalendarDays,
+  CalendarX2,
   CheckCircle2,
   Clock,
   Loader2,
+  ScanLine,
+  Sparkles,
   Stethoscope,
   UserRound,
+  Zap,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -128,7 +132,7 @@ export default function AppointmentPage() {
           <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald/10">
             <CheckCircle2 className="h-10 w-10 text-emerald" />
           </div>
-          <h1 className="mt-5 text-2xl font-black text-emerald">نوبت شما ثبت شد 🎉</h1>
+          <h1 className="mt-5 text-2xl font-black text-emerald">نوبت شما ثبت شد</h1>
           <p className="mt-3 text-navy/60">جزئیات نوبت شما:</p>
           <div className="mt-5 space-y-3 rounded-2xl bg-cream p-5 text-right">
             <p className="flex items-center gap-2 font-semibold">
@@ -201,22 +205,26 @@ export default function AppointmentPage() {
       {/* Step 1 — service */}
       {step === 1 && (
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((s) => (
-            <button
-              key={s}
-              type="button"
-              onClick={() => {
-                setService(s);
-                setStep(2);
-              }}
-              className="group flex min-h-24 items-center justify-between rounded-2xl border border-navy/10 bg-white p-5 text-right shadow-sm transition-all hover:-translate-y-0.5 hover:border-emerald/40 hover:shadow-md"
-            >
-              <span className="text-2xl">
-                {s === "لیزر" ? "💡" : s === "تکار" ? "⚡" : s === "طب سوزنی" ? "📍" : s === "ورزش درمانی" ? "🏃" : "🩺"}
-              </span>
-              <span className="text-base font-bold">{s}</span>
-            </button>
-          ))}
+          {SERVICES.map((s) => {
+            const Icon =
+              s === "لیزر" ? ScanLine : s === "تکار" ? Zap : s === "طب سوزنی" ? Sparkles : s === "ورزش درمانی" ? Stethoscope : UserRound;
+            return (
+              <button
+                key={s}
+                type="button"
+                onClick={() => {
+                  setService(s);
+                  setStep(2);
+                }}
+                className="group flex min-h-24 items-center justify-between rounded-2xl border border-navy/10 bg-white p-5 text-right shadow-sm transition-all hover:-translate-y-0.5 hover:border-emerald/40 hover:shadow-md"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald/10 text-emerald transition-colors group-hover:bg-emerald group-hover:text-white">
+                  <Icon className="h-6 w-6" />
+                </span>
+                <span className="text-base font-bold">{s}</span>
+              </button>
+            );
+          })}
         </div>
       )}
 
@@ -240,8 +248,8 @@ export default function AppointmentPage() {
                 }}
                 className="flex w-full items-center gap-4 rounded-2xl border border-navy/10 bg-white p-5 text-right shadow-sm transition-all hover:-translate-y-0.5 hover:border-emerald/40 hover:shadow-md"
               >
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald/10 text-2xl">
-                  👩‍⚕️
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald/10 text-emerald">
+                  <Stethoscope className="h-7 w-7" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-bold">{d.full_name}</p>
@@ -264,7 +272,7 @@ export default function AppointmentPage() {
               </p>
             ) : availableDays.length === 0 ? (
               <EmptyState
-                icon="🗓️"
+                icon={CalendarX2}
                 title="نوبت خالی یافت نشد"
                 description="این پزشک در ۳۰ روز آینده نوبت خالی ندارد. لطفاً پزشک یا تاریخ دیگری انتخاب کنید."
                 action={
