@@ -37,6 +37,14 @@ def _is_admin(user: User) -> bool:
     return user.is_admin_user
 
 
+def _safe_media_url(field) -> str:
+    """URL of an ImageField or '' when unset (no exception)."""
+    try:
+        return field.url if field else ""
+    except (ValueError, AttributeError):
+        return ""
+
+
 def _deny():
     return Response({"detail": "فقط مدیر می‌تواند به این بخش دسترسی داشته باشد"}, status=status.HTTP_403_FORBIDDEN)
 
@@ -437,6 +445,11 @@ class PublicSettingsView(APIView):
                 "address": s.address,
                 "working_hours": s.working_hours,
                 "google_client_id": s.google_client_id,
+                "theme": s.effective_theme(),
+                "logo": _safe_media_url(s.logo),
+                "logo_alt_text": s.logo_alt_text,
+                "favicon": _safe_media_url(s.favicon),
+                "og_image": _safe_media_url(s.og_image),
             }
         )
 
@@ -469,6 +482,11 @@ class AdminSettingsView(APIView):
             "google_client_id": s.google_client_id,
             # Masked: the panel never reveals the stored password.
             "smtp_password_set": bool(s.smtp_password),
+            "theme": s.effective_theme(),
+            "logo": _safe_media_url(s.logo),
+            "logo_alt_text": s.logo_alt_text,
+            "favicon": _safe_media_url(s.favicon),
+            "og_image": _safe_media_url(s.og_image),
             "updated_at": s.updated_at,
         }
         return Response(data)
@@ -491,3 +509,28 @@ class AdminSettingsView(APIView):
             s.smtp_password = request.data["smtp_password"]
         s.save()
         return Response({"detail": "تنظیمات ذخیره شد"}, status=status.HTTP_200_OK)
+
+
+class AdminThemeCompatView(APIView):
+    """Backwards-compatible theme endpoint wired under /api/admin/theme/."""
+
+    permission_classes = [permissions.IsAuthenticated]
+    throttle_classes = [AdminThrottle]
+
+    def get(self, request):
+        if not _is_admin(request.user):
+            return _deny()
+        return Response(SiteSetting.get().effective_theme())
+
+    def put(self, request):
+        if not _is_admin(request.user):
+            return _deny()
+        from siteconfig.api.serializers import ThemeSerializer
+        from siteconfig.models import SiteSetting as SS
+
+        setting = SS.get()
+        serializer = ThemeSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        setting.theme = serializer.validated_data
+        setting.save(update_fields=["theme", "updated_at"])
+        return Response(setting.effective_theme())

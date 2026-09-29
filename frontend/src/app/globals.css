@@ -1,22 +1,100 @@
 @import "@fontsource/vazirmatn/300.css";
 @import "@fontsource/vazirmatn/400.css";
 @import "@fontsource/vazirmatn/500.css";
+@import "@fontsource/vazirmatn/600.css";
 @import "@fontsource/vazirmatn/700.css";
 @import "@fontsource/vazirmatn/800.css";
 @import "@fontsource/vazirmatn/900.css";
+@import "@fontsource/estedad/400.css";
+@import "@fontsource/estedad/500.css";
+@import "@fontsource/estedad/600.css";
+@import "@fontsource/estedad/700.css";
+@import "@fontsource/estedad/800.css";
+@import "@fontsource/noto-sans-arabic/arabic-400.css";
+@import "@fontsource/noto-sans-arabic/arabic-500.css";
+@import "@fontsource/noto-sans-arabic/arabic-600.css";
+@import "@fontsource/noto-sans-arabic/arabic-700.css";
+@import "@fontsource/noto-sans-arabic/arabic-800.css";
+
+/* --- Extended Persian-capable font library (19 families) --- */
+@import "@fontsource/ibm-plex-sans-arabic/arabic-400.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-600.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-700.css";
+@import "@fontsource/cairo/arabic-400.css";
+@import "@fontsource/cairo/arabic-600.css";
+@import "@fontsource/cairo/arabic-700.css";
+@import "@fontsource/cairo/arabic-800.css";
+@import "@fontsource/almarai/arabic-400.css";
+@import "@fontsource/almarai/arabic-700.css";
+@import "@fontsource/almarai/arabic-800.css";
+@import "@fontsource/mada/arabic-400.css";
+@import "@fontsource/mada/arabic-700.css";
+@import "@fontsource/mada/arabic-800.css";
+@import "@fontsource/changa/arabic-400.css";
+@import "@fontsource/changa/arabic-700.css";
+@import "@fontsource/changa/arabic-800.css";
+@import "@fontsource/readex-pro/arabic-400.css";
+@import "@fontsource/readex-pro/arabic-600.css";
+@import "@fontsource/readex-pro/arabic-700.css";
+@import "@fontsource/el-messiri/arabic-400.css";
+@import "@fontsource/el-messiri/arabic-600.css";
+@import "@fontsource/el-messiri/arabic-700.css";
+@import "@fontsource/rubik/arabic-400.css";
+@import "@fontsource/rubik/arabic-600.css";
+@import "@fontsource/rubik/arabic-700.css";
+@import "@fontsource/tajawal/arabic-400.css";
+@import "@fontsource/tajawal/arabic-700.css";
+@import "@fontsource/tajawal/arabic-800.css";
+@import "@fontsource/markazi-text/arabic-400.css";
+@import "@fontsource/markazi-text/arabic-600.css";
+@import "@fontsource/markazi-text/arabic-700.css";
+@import "@fontsource/amiri/arabic-400.css";
+@import "@fontsource/amiri/arabic-700.css";
+@import "@fontsource/scheherazade-new/arabic-400.css";
+@import "@fontsource/scheherazade-new/arabic-700.css";
+@import "@fontsource/noto-naskh-arabic/arabic-400.css";
+@import "@fontsource/noto-naskh-arabic/arabic-700.css";
+@import "@fontsource/lalezar/400.css";
+@import "@fontsource/gulzar/400.css";
+@import "@fontsource/noto-nastaliq-urdu/arabic-400.css";
+@import "@fontsource/noto-nastaliq-urdu/arabic-700.css";
 @import "tailwindcss";
 
+/*
+ * Theme engine: every brand color / font / radius is a CSS variable.
+ * The defaults below mirror the default theme; the ThemeProvider overwrites
+ * them at runtime from the admin panel settings (تم دلخواه ادمین).
+ */
 @theme {
+  --color-emerald: #2d6a4f;
+  --color-emerald-light: #3f8a68;
+  --color-emerald-dark: #256044;
+  --color-gold: #d4a373;
+  --color-gold-light: #e6c39a;
   --color-navy: #1b2a4a;
   --color-navy-light: #2c3f66;
   --color-navy-dark: #131f38;
+  --color-cream: #faf7f2;
+  --font-heading: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --heading-weight: 800;
+  --radius-base: 16px;
+}
+
+:root {
   --color-emerald: #2d6a4f;
   --color-emerald-light: #3f8a68;
+  --color-emerald-dark: #256044;
   --color-gold: #d4a373;
   --color-gold-light: #e6c39a;
+  --color-navy: #1b2a4a;
+  --color-navy-light: #2c3f66;
+  --color-navy-dark: #131f38;
   --color-cream: #faf7f2;
-  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --heading-weight: 800;
+  --radius-base: 16px;
 }
 
 html {
@@ -29,22 +107,29 @@ body {
   background-color: #ffffff;
   background-image: radial-gradient(
       circle at 15% 0%,
-      rgba(45, 106, 79, 0.045),
+      color-mix(in srgb, var(--color-emerald) 5%, transparent),
       transparent 32rem
     ),
     radial-gradient(
       circle at 85% 100%,
-      rgba(27, 42, 74, 0.04),
+      color-mix(in srgb, var(--color-navy) 4%, transparent),
       transparent 30rem
     );
   background-attachment: fixed;
   color: var(--color-navy);
-  font-family: var(--font-sans);
-  /* No faux bold/italic: real Vazirmatn weights are loaded. */
+  font-family: var(--font-body);
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* Headings follow the configurable heading font + weight. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
 }
 
 /* Ensure nothing overflows horizontally on small screens (spec: 320px+). */
@@ -79,7 +164,7 @@ button:disabled,
 
 /* Selection in brand colors. */
 ::selection {
-  background-color: rgba(45, 106, 79, 0.22);
+  background-color: color-mix(in srgb, var(--color-emerald) 22%, transparent);
   color: var(--color-navy-dark);
 }
 
@@ -94,18 +179,18 @@ button:disabled,
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(27, 42, 74, 0.25);
+  background: color-mix(in srgb, var(--color-navy) 25%, transparent);
   border-radius: 999px;
   border: 2px solid var(--color-cream);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(27, 42, 74, 0.45);
+  background: color-mix(in srgb, var(--color-navy) 45%, transparent);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(27, 42, 74, 0.3) var(--color-cream);
+  scrollbar-color: color-mix(in srgb, var(--color-navy) 30%, transparent) var(--color-cream);
 }
 
 /* Fluid type scale across 320px → 1920px. */
@@ -190,7 +275,7 @@ h3 {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Slow shimmer sweep across gold buttons on hover. */
+/* Slow shimmer sweep across accent buttons on hover. */
 @keyframes shimmer {
   from {
     transform: translateX(-150%) skewX(-12deg);
@@ -277,8 +362,8 @@ h3 {
 .card-lift:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 18px 40px -18px rgba(27, 42, 74, 0.28),
-    0 4px 12px -6px rgba(27, 42, 74, 0.12);
+    0 18px 40px -18px color-mix(in srgb, var(--color-navy) 28%, transparent),
+    0 4px 12px -6px color-mix(in srgb, var(--color-navy) 12%, transparent);
 }
 
 /* Hide scrollbars on horizontal steppers while keeping scroll. */

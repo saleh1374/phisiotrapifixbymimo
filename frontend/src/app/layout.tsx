@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 
 import AnnouncementBanner from "@/components/AnnouncementBanner";
+import BrandingMeta from "@/components/BrandingMeta";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Providers from "@/components/Providers";
@@ -34,6 +35,7 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body className="flex min-h-screen flex-col bg-white text-navy antialiased">
         <Providers>
+          <BrandingMeta />
           <AnnouncementBanner />
           <Header />
           <main className="flex-1">{children}</main>

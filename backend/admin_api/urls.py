@@ -18,4 +18,5 @@ urlpatterns = [
     path("news/<uuid:pk>/", views.AdminNewsDetailView.as_view(), name="admin-news-detail"),
     path("orders/", views.AdminOrdersView.as_view(), name="admin-orders"),
     path("settings/", views.AdminSettingsView.as_view(), name="admin-settings"),
+    path("theme/", views.AdminThemeCompatView.as_view(), name="admin-theme-compat"),
 ]

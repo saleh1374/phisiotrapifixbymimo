@@ -20,6 +20,7 @@ urlpatterns = [
     path("api/news/", include("news.urls")),
     path("api/health/", include("accounts.urls_health")),
     path("api/admin/", include("admin_api.urls")),
+    path("api/site-editor/", include("siteconfig.api.urls")),
     path("api/public/settings/", admin_api_public_settings, name="public-settings"),
 ]
 

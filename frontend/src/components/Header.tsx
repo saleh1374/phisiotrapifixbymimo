@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { useAuthStore } from "@/stores/auth";
+import { useAppearance } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -18,6 +19,19 @@ const NAV_LINKS = [
 ];
 
 function Logo() {
+  const { branding } = useAppearance();
+  if (branding.logo) {
+    return (
+      <Link href="/" className="flex items-center gap-2" title="صفحه اصلی">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={branding.logo}
+          alt={branding.logo_alt_text || "لوگو"}
+          className="h-11 w-auto max-w-[180px] object-contain"
+        />
+      </Link>
+    );
+  }
   return (
     <Link href="/" className="flex items-center gap-2" title="کلینیک فیزیوتراپی">
       <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald text-xl font-black text-white shadow-md">

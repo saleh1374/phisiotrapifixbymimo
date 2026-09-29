@@ -8,6 +8,7 @@ import {
   LayoutDashboard,
   LogOut,
   Newspaper,
+  Palette,
   Settings,
   Users,
   Video,
@@ -27,6 +28,7 @@ const NAV = [
   { href: "/admin/courses", label: "دوره‌ها", icon: GraduationCap },
   { href: "/admin/news", label: "اخبار", icon: Newspaper },
   { href: "/admin/orders", label: "سفارش‌ها", icon: CreditCard },
+  { href: "/admin/appearance", label: "ویرایشگر ظاهر سایت", icon: Palette },
   { href: "/admin/settings", label: "تنظیمات سایت", icon: Settings },
 ];
 

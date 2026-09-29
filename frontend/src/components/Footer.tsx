@@ -5,6 +5,7 @@ import { Mail, MapPin, Phone, Stethoscope } from "lucide-react";
 import Link from "next/link";
 
 import { apiFetch } from "@/lib/api";
+import { useAppearance } from "@/components/ThemeProvider";
 
 interface PublicSettings {
   site_name: string;
@@ -21,24 +22,38 @@ export default function Footer() {
     queryFn: () => apiFetch<PublicSettings>("/public/settings/", {}, false),
     staleTime: 5 * 60_000,
   });
+  const { branding, content } = useAppearance();
 
   const siteName = data?.site_name || "کلینیک فیزیوتراپی";
   const parts = siteName.trim().split(/\s+/);
   const lastName = parts.length > 1 ? parts.pop() : siteName;
+  const aboutText = content["footer.about"]?.about_text as string | undefined;
 
   return (
     <footer className="mt-16 bg-navy text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
         <div>
           <p className="flex items-center gap-2 text-lg font-bold">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald text-lg font-black">
-              ف
-            </span>
-            {parts.join(" ")} <span className="text-gold">{lastName}</span>
+            {branding.logo ? (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src={branding.logo}
+                alt={branding.logo_alt_text || "لوگو"}
+                className="h-10 w-auto max-w-[160px] object-contain"
+              />
+            ) : (
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald text-lg font-black">
+                ف
+              </span>
+            )}
+            {!branding.logo && (
+              <>
+                {parts.join(" ")} <span className="text-gold">{lastName}</span>
+              </>
+            )}
           </p>
           <p className="mt-3 text-sm leading-7 text-white/70">
-            {data?.site_tagline ||
-              "ارائه‌دهنده خدمات تخصصی فیزیوتراپی، توانبخشی و آموزش‌های تخصصی با کادری مجرب و تجهیزات به‌روز."}
+            {aboutText || data?.site_tagline || ""}
           </p>
         </div>
 
