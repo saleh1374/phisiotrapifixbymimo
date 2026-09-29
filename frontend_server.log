@@ -2,15 +2,41 @@
   - Local:        http://localhost:3000
 
  ✓ Starting...
- ✓ Ready in 1590ms
- ○ Compiling / ...
- ✓ Compiled / in 3.5s (972 modules)
- GET / 200 in 3719ms
+ ✓ Ready in 1712ms
+ ○ Compiling /services ...
+ ✓ Compiled /services in 3.4s (914 modules)
+ GET /services 200 in 3630ms
+ ✓ Compiled /icon.svg in 471ms (405 modules)
+ GET /icon.svg 200 in 614ms
+ GET /services 200 in 688ms
  ○ Compiling /admin/appearance ...
- ✓ Compiled /admin/appearance in 915ms (1035 modules)
- GET /admin/appearance 200 in 1057ms
- ✓ Compiled /icon.svg in 190ms (468 modules)
- GET /icon.svg 200 in 250ms
- GET / 200 in 125ms
- GET /admin/appearance 200 in 76ms
- GET / 200 in 39ms
+ ✓ Compiled /admin/appearance in 1185ms (999 modules)
+ GET /admin/appearance 200 in 1399ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 969ms (886 modules)
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 3.6s (1875 modules)
+ ✓ Compiled /icon.svg in 285ms (987 modules)
+ GET /icon.svg 200 in 487ms
+ GET /icon.svg 200 in 9ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 634ms (1942 modules)
+ GET /icon.svg 200 in 21ms
+ GET /icon.svg 200 in 13ms
+ ○ Compiling /admin/settings ...
+ ✓ Compiled /admin/settings in 703ms (1953 modules)
+ GET /icon.svg 200 in 13ms
+ ✓ Compiled /admin/appearance in 337ms (1038 modules)
+ GET /icon.svg 200 in 16ms
+ ○ Compiling / ...
+ ✓ Compiled / in 704ms (1506 modules)
+ GET / 200 in 873ms
+ GET /icon.svg 200 in 20ms
+ GET /icon.svg 200 in 32ms
+ GET /admin/appearance 200 in 65ms
+ GET /services 200 in 40ms
+ ○ Compiling /videos ...
+ ✓ Compiled /videos in 1087ms (1479 modules)
+ ✓ Compiled /icon.svg in 232ms (551 modules)
+ GET /icon.svg 200 in 290ms
+ GET / 200 in 112ms

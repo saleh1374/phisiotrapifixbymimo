@@ -105,3 +105,37 @@ class MediaAssetSerializer(serializers.ModelSerializer):
             return obj.file.url
         except (ValueError, AttributeError):
             return ""
+
+
+class ServiceSerializer(serializers.ModelSerializer):
+    image = serializers.PrimaryKeyRelatedField(
+        queryset=MediaAsset.objects.all(), required=False, allow_null=True
+    )
+    image_src = serializers.SerializerMethodField()
+
+    class Meta:
+        from siteconfig.services_models import Service
+
+        model = Service
+        fields = [
+            "id", "name", "short_desc", "description", "image", "image_src",
+            "image_url", "icon", "order", "is_active",
+        ]
+
+    def get_image_src(self, obj) -> str:
+        return obj.resolved_image
+
+    def validate_icon(self, value: str) -> str:
+        from siteconfig.api.services_api import ALLOWED_ICONS
+
+        if value and value not in ALLOWED_ICONS:
+            raise serializers.ValidationError("آیکون نامعتبر است")
+        return value or "Sparkles"
+
+    def validate_name(self, value: str) -> str:
+        value = (value or "").strip()
+        if not value:
+            raise serializers.ValidationError("نام خدمت الزامی است")
+        if len(value) > 120:
+            raise serializers.ValidationError("نام خدمت حداکثر ۱۲۰ کاراکتر است")
+        return value

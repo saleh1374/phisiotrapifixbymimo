@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText, ImagePlus, Palette } from "lucide-react";
+import { Briefcase, FileText, ImagePlus, Palette } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
@@ -9,11 +9,13 @@ import { useState } from "react";
 import AppearanceEditor from "@/components/admin/AppearanceEditor";
 import ContentEditor from "@/components/admin/ContentEditor";
 import MediaEditor from "@/components/admin/MediaEditor";
+import ServicesManager from "@/components/admin/ServicesManager";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/stores/auth";
 
 const TABS = [
   { id: "theme", label: "تم و رنگ‌ها", icon: Palette },
+  { id: "services", label: "خدمات", icon: Briefcase },
   { id: "media", label: "رسانه‌ها", icon: ImagePlus },
   { id: "content", label: "محتوای صفحات", icon: FileText },
 ];
@@ -53,6 +55,7 @@ export default function AdminAppearancePage() {
 
       <div className="mt-6">
         {tab === "theme" && <AppearanceEditor />}
+        {tab === "services" && <ServicesManager />}
         {tab === "media" && <MediaEditor />}
         {tab === "content" && <ContentEditor />}
       </div>

@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "/", label: "خانه" },
   { href: "/appointment", label: "رزرو نوبت" },
+  { href: "/services", label: "خدمات" },
   { href: "/videos", label: "فیلم‌های آموزشی" },
   { href: "/academy", label: "آکادمی" },
   { href: "/magazine", label: "مجله علمی" },

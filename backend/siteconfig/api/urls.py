@@ -1,5 +1,6 @@
 from django.urls import path
 
+from . import services_api as services_views
 from . import views
 
 urlpatterns = [
@@ -16,4 +17,8 @@ urlpatterns = [
     path("content/", views.ContentBlocksView.as_view(), name="admin-content"),
     path("content/<str:key>/", views.ContentBlockDetailView.as_view(), name="admin-content-detail"),
     path("public/content/", views.PublicContentView.as_view(), name="public-content"),
+    # Managed services (/services page)
+    path("services/", services_views.AdminServicesView.as_view(), name="admin-services"),
+    path("services/<uuid:pk>/", services_views.AdminServiceDetailView.as_view(), name="admin-service-detail"),
+    path("public/services/", services_views.PublicServicesView.as_view(), name="public-services"),
 ]

@@ -21,6 +21,7 @@ from academy.models import Certificate, Course, CourseChapter, Order
 from appointments.models import Appointment, DoctorSchedule, Holiday
 from news.models import NewsFeed
 from siteconfig.models import SiteSetting
+from siteconfig.services_models import Service
 from videos.models import Video
 
 TODAY = timezone.localdate()
@@ -43,6 +44,25 @@ def seed():
     s.otp_backend = "console"
     s.save()
     print("[OK] Site settings")
+
+    # --- Managed services (/services page) ---
+    services_data = [
+        {"name": "لیزرتراپی", "short_desc": "لیزر سطح پایین برای تسریع ترمیم بافت", "icon": "ScanLine", "order": 1,
+         "description": "لیزرتراپی سطح پایین (LLLT) با تحریک میتکندری و افزایش گردش خون، روند ترمیم بافت‌های آسیب‌دیده را تسریع می‌کند. مناسب برای التهاب تاندون، زخم‌های مزمن و دردهای عضلانی."},
+        {"name": "تکارتراپی", "short_desc": "انرژی رادیویی برای دردهای مزمن", "icon": "Zap", "order": 2,
+         "description": "تکارتراپی (TECAR) با امواج رادیویی فرکانس بالا، حرارت عمیق بدون درد ایجاد می‌کند و برای آرتروز، آسیب‌های ورزشی و دردهای مزمن عضلانی کاربرد دارد."},
+        {"name": "طب سوزنی", "short_desc": "درمان نقاط ماشه‌ای و درد عضلانی", "icon": "Activity", "order": 3,
+         "description": "طب سوزنی خشک (Dry Needling) با آزادسازی نقاط ماشه‌ای عضلانی، دردهای مزمن گردن، کمر و شانه را کاهش می‌دهد."},
+        {"name": "ورزش درمانی", "short_desc": "برنامه تمرینی شخصی‌سازی‌شده", "icon": "Dumbbell", "order": 4,
+         "description": "برنامه ورزشی اختصاصی متناسب با وضعیت شما — از توانبخشی بعد از جراحی تا تقویت عملکرد ورزشی، همراه با پیگیری منظم پیشرفت."},
+        {"name": "معاینه تخصصی", "short_desc": "ارزیابی دقیق وضعیت حرکتی", "icon": "Stethoscope", "order": 5,
+         "description": "ارزیابی جامع اسکلتی-عضلانی با تست‌های تخصصی برای تشخیص دقیق علت درد و طراحی مسیر درمان مناسب."},
+        {"name": "هیدروتراپی", "short_desc": "درمان در آب", "icon": "Waves", "order": 6,
+         "description": "ورزش درمانی در استخر با کاهش وزن وارده بر مفاصل؛ گزینه‌ای عالی برای آرتروز، کمردرد و توانبخشی بعد از جراحی."},
+    ]
+    for sd in services_data:
+        obj, created = Service.objects.get_or_create(name=sd["name"], defaults=sd)
+        print(f"[{'CREATED' if created else 'EXISTS'}] Service: {sd['name']}")
 
     # --- Users ---
     doctors_data = [

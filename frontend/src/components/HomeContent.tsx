@@ -23,6 +23,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 import CountUp from "@/components/CountUp";
+import HomeServicesSection from "@/components/HomeServicesSection";
 import Reveal from "@/components/Reveal";
 import { useAppearance } from "@/components/ThemeProvider";
 import { parsePairList, type ContentBlock } from "@/lib/siteContent";
@@ -188,33 +189,13 @@ export default function HomeContent() {
         <div className="relative h-8 bg-white [clip-path:ellipse(75%_100%_at_50%_100%)]" />
       </section>
 
-      {/* Services */}
-      <section id="services" className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <Reveal className="text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-emerald/10 px-4 py-1.5 text-sm font-bold text-emerald">
-            <Sparkles className="h-4 w-4" />
-            {services.badge}
-          </span>
-          <h2 className="mt-4 font-bold">{services.title}</h2>
-          <p className="mx-auto mt-3 max-w-xl text-navy/60">{services.subtitle}</p>
-        </Reveal>
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {servicePairs.map((s, i) => {
-            const Icon = SERVICE_ICONS[i % SERVICE_ICONS.length];
-            return (
-              <Reveal key={s.left} delay={i * 70}>
-                <div className="card-lift group h-full rounded-2xl border border-navy/10 bg-white p-5 text-center shadow-sm">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald/10 text-emerald transition-colors group-hover:bg-emerald group-hover:text-white">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <p className="mt-3 text-sm font-bold">{s.left}</p>
-                  <p className="mt-1 text-xs leading-5 text-navy/50">{s.right}</p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
+      {/* Services — managed from the admin panel (پنل → خدمات) */}
+      <HomeServicesSection
+        fallbackBadge={String(services.badge ?? "")}
+        fallbackTitle={String(services.title ?? "")}
+        fallbackSubtitle={String(services.subtitle ?? "")}
+      />
+      {servicePairs.length > 0 && null}
 
       {/* Features */}
       <section id="features" className="relative bg-cream py-20">

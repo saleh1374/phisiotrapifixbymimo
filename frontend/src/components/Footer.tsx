@@ -66,6 +66,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/services" title="خدمات کلینیک" className="hover:text-gold">
+                خدمات کلینیک
+              </Link>
+            </li>
+            <li>
               <Link href="/videos" title="فیلم‌های آموزشی" className="hover:text-gold">
                 فیلم‌های آموزشی
               </Link>
