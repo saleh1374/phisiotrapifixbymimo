@@ -435,3 +435,210 @@ ValueError: badly formed hexadecimal UUID string
 [2026-09-29 19:31:00,354] INFO django.server "GET /api/site-editor/public/theme/ HTTP/1.1" 200 301
 [2026-09-29 19:31:00,357] INFO django.server "GET /api/site-editor/public/branding/ HTTP/1.1" 200 57
 [2026-09-29 19:31:00,360] INFO django.server "GET /api/site-editor/public/content/ HTTP/1.1" 200 2951
+[2026-09-29 19:32:15,966] INFO django.server "GET /api/site-editor/public/services/ HTTP/1.1" 200 3295
+[2026-09-29 19:32:55,432] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 871
+[2026-09-29 19:32:55,435] INFO django.server "GET /api/site-editor/public/theme/ HTTP/1.1" 200 301
+[2026-09-29 19:32:55,439] INFO django.server "GET /api/site-editor/public/branding/ HTTP/1.1" 200 57
+[2026-09-29 19:32:55,440] INFO django.server "GET /api/site-editor/public/content/ HTTP/1.1" 200 2951
+[2026-09-29 19:32:55,443] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 871
+[2026-09-29 19:32:55,468] INFO django.server "GET /api/site-editor/theme/ HTTP/1.1" 200 301
+[2026-09-29 19:32:55,471] INFO django.server "GET /api/site-editor/theme/ HTTP/1.1" 200 301
+[2026-09-29 19:33:12,305] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 871
+[2026-09-29 19:33:12,312] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 871
+[2026-09-29 19:33:12,323] INFO django.server "GET /api/site-editor/public/services/ HTTP/1.1" 200 3295
+[2026-09-29 19:33:12,330] INFO django.server "GET /api/site-editor/public/theme/ HTTP/1.1" 200 301
+[2026-09-29 19:33:12,336] INFO django.server "GET /api/site-editor/public/branding/ HTTP/1.1" 200 57
+[2026-09-29 19:33:12,341] INFO django.server "GET /api/site-editor/public/content/ HTTP/1.1" 200 2951
+[2026-09-29 19:33:52,965] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 871
+[2026-09-29 19:33:52,973] INFO django.server "GET /api/site-editor/public/services/ HTTP/1.1" 200 3295
+[2026-09-29 19:33:52,980] INFO django.server "GET /api/site-editor/public/theme/ HTTP/1.1" 200 301
+[2026-09-29 19:33:52,986] INFO django.server "GET /api/site-editor/public/content/ HTTP/1.1" 200 2951
+[2026-09-29 19:33:52,988] INFO django.server "GET /api/site-editor/public/branding/ HTTP/1.1" 200 57
+[2026-09-29 19:33:52,988] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 871
+[2026-09-29 19:34:20,958] INFO django.server "GET /api/site-editor/services/ HTTP/1.1" 200 3295
+[2026-09-29 19:34:20,966] ERROR config.exceptions Unhandled exception in <siteconfig.api.views.MediaLibraryView object at 0x000002DA192C3260>
+Traceback (most recent call last):
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\siteconfig\api\views.py", line 162, in get
+    return Response(MediaAssetSerializer(assets, many=True).data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 400, in __iter__
+    self._fetch_all()
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1512, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 350, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+[2026-09-29 19:34:20,986] ERROR django.request Internal Server Error: /api/site-editor/media/
+Traceback (most recent call last):
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\siteconfig\api\views.py", line 162, in get
+    return Response(MediaAssetSerializer(assets, many=True).data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 400, in __iter__
+    self._fetch_all()
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1512, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 350, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+[2026-09-29 19:34:20,987] ERROR django.server "GET /api/site-editor/media/ HTTP/1.1" 500 28937
+[2026-09-29 19:35:58,498] INFO django.server "OPTIONS /api/site-editor/services/8b634374-dda5-4cb7-8a34-982caa96d11c/ HTTP/1.1" 200 0
+[2026-09-29 19:35:58,630] INFO django.server "DELETE /api/site-editor/services/8b634374-dda5-4cb7-8a34-982caa96d11c/ HTTP/1.1" 204 0
+[2026-09-29 19:35:58,637] INFO django.server "GET /api/site-editor/services/ HTTP/1.1" 200 2795
+[2026-09-29 19:35:58,827] ERROR config.exceptions Unhandled exception in <siteconfig.api.views.MediaLibraryView object at 0x000002DA18D46060>
+Traceback (most recent call last):
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\siteconfig\api\views.py", line 162, in get
+    return Response(MediaAssetSerializer(assets, many=True).data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 400, in __iter__
+    self._fetch_all()
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1512, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 350, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+[2026-09-29 19:35:58,853] ERROR django.request Internal Server Error: /api/site-editor/media/
+Traceback (most recent call last):
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\siteconfig\api\views.py", line 162, in get
+    return Response(MediaAssetSerializer(assets, many=True).data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 400, in __iter__
+    self._fetch_all()
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\query.py", line 123, in __iter__
+    for row in compiler.results_iter(results):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1512, in apply_converters
+    value = converter(value, expression, connection)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CynetAdmin\Documents\GitHub\phisiotrapifixbymimo\backend\.venv\Lib\site-packages\django\db\backends\sqlite3\operations.py", line 350, in convert_uuidfield_value
+    value = uuid.UUID(value)
+            ^^^^^^^^^^^^^^^^
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\uuid.py", line 178, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+[2026-09-29 19:35:58,854] ERROR django.server "GET /api/site-editor/media/ HTTP/1.1" 500 28937
+[2026-09-29 19:36:23,153] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 871
+[2026-09-29 19:36:23,156] INFO django.server "GET /api/site-editor/public/services/ HTTP/1.1" 200 2795
+[2026-09-29 19:36:23,157] INFO django.server "GET /api/site-editor/public/content/ HTTP/1.1" 200 2951
+[2026-09-29 19:36:23,157] INFO django.server "GET /api/site-editor/public/branding/ HTTP/1.1" 200 57
+[2026-09-29 19:36:23,159] INFO django.server "GET /api/site-editor/public/theme/ HTTP/1.1" 200 301
+[2026-09-29 19:36:23,166] INFO django.server "GET /api/public/settings/ HTTP/1.1" 200 871
+[2026-09-29 19:36:39,351] INFO django.server "GET /api/site-editor/public/services/ HTTP/1.1" 200 2795

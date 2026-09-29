@@ -40,3 +40,14 @@
  ✓ Compiled /icon.svg in 232ms (551 modules)
  GET /icon.svg 200 in 290ms
  GET / 200 in 112ms
+ GET /icon.svg 200 in 14ms
+ GET /admin/appearance 200 in 55ms
+ GET /services 200 in 36ms
+ GET /icon.svg 200 in 12ms
+ GET /icon.svg 200 in 16ms
+ GET /services 200 in 32ms
+ GET /icon.svg 200 in 28ms
+ GET /icon.svg 200 in 17ms
+ GET /services 200 in 30ms
+ GET /icon.svg 200 in 23ms
+ GET /icon.svg 200 in 18ms
